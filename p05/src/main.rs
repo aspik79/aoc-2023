@@ -1,4 +1,4 @@
-use std::cmp;
+//use std::cmp;
 use std::env;
 use std::fs;
 
@@ -44,11 +44,15 @@ fn main() {
 fn part1(maps: &Vec<Vec<Vec<u64>>>, seed_line: &str) -> u64 {
 
     let seeds : Vec<u64> = seed_line.split(": ").collect::<Vec<_>>()[1].split_whitespace().map(|item| item.parse().unwrap()).collect();
-    dbg!(&seeds);
 
+    map_seeds(&maps, &seeds)
+}
+
+fn map_seeds(maps: &Vec<Vec<Vec<u64>>>, seeds: &Vec<u64>) -> u64 {
     let mut acc: u64 = 99999999999;
+    dbg!(seeds.len());
     for seed in seeds {
-        let mut current = seed;
+        let mut current : u64 = *seed;
         for map in maps.iter() {
             for line in map.iter() {
                 let s = line[1];
@@ -67,7 +71,7 @@ fn part1(maps: &Vec<Vec<Vec<u64>>>, seed_line: &str) -> u64 {
         }
 
         if current < acc {
-            println!("Min Loc reduced to {}", current);
+            println!("Min Loc reduced to {}", &current);
             acc = current;
         }
     }
@@ -83,17 +87,28 @@ fn part2(maps: &Vec<Vec<Vec<u64>>>, seed_line: &str) -> u64 {
     let mut next_tuples : Vec<(u64, u64)> = Vec::<_>::new();
     let mut current_tuples : Vec<(u64, u64)> = Vec::<_>::new();
 
+    let mut seeds : Vec<u64> = Vec::<_>::new();
+
     for sri in 0..range_count {
+
         current_tuples.push((seed_range_tokens[2 * sri], seed_range_tokens[2 * sri + 1]));
+        let start = seed_range_tokens[2 * sri];
+        let length = seed_range_tokens[2 * sri + 1];
+        for i in start..start + length {
+            seeds.push(i);
+        }
     }
 
-    dbg!(&current_tuples);
+    let acc = map_seeds(&maps, &seeds);
+
+    //dbg!(&current_tuples);
 
 
-    let acc = handle_next_map(&maps, &current_tuples);
+    //let acc = handle_next_map(&maps, &current_tuples);
     acc
 }
 
+/*
 fn handle_next_map(maps: &[Vec<Vec<u64>>], tuples: &Vec<(u64, u64)>) -> u64 {
     let acc;
 
@@ -118,6 +133,9 @@ fn handle_next_map(maps: &[Vec<Vec<u64>>], tuples: &Vec<(u64, u64)>) -> u64 {
                     println!("new intersect tuple: {}, {}", intersect_start, intersect_length);
                     next_tuples.push((line[0] + start_offset, intersect_length));
                 }
+
+                let pre_len = cmp::max(0, *start - map_start);
+                let post_len = cmp::max(0, *end - map_end);
             }
         }
 
@@ -130,3 +148,6 @@ fn handle_next_map(maps: &[Vec<Vec<u64>>], tuples: &Vec<(u64, u64)>) -> u64 {
 
     return acc;
 }
+*/
+
+// 44334821
