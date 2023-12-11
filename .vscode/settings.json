@@ -1,0 +1,29 @@
+{
+    "rust-analyzer.linkedProjects": [
+        ".\\p01\\Cargo.toml",
+        ".\\p02\\Cargo.toml",
+        ".\\p03\\Cargo.toml",
+        ".\\p04\\Cargo.toml",
+        ".\\p05\\Cargo.toml",
+        ".\\p06\\Cargo.toml",
+        ".\\p07\\Cargo.toml",
+        ".\\p07\\Cargo.toml",
+        ".\\p08\\Cargo.toml",
+        ".\\p10\\Cargo.toml",
+        ".\\p11\\Cargo.toml",
+        ".\\p12\\Cargo.toml",
+        ".\\p13\\Cargo.toml",
+        ".\\p14\\Cargo.toml",
+        ".\\p15\\Cargo.toml",
+        ".\\p16\\Cargo.toml",
+        ".\\p17\\Cargo.toml",
+        ".\\p18\\Cargo.toml",
+        ".\\p19\\Cargo.toml",
+        ".\\p20\\Cargo.toml",
+        ".\\p21\\Cargo.toml",
+        ".\\p22\\Cargo.toml",
+        ".\\p23\\Cargo.toml",
+        ".\\p24\\Cargo.toml",
+        ".\\p25\\Cargo.toml"
+    ]
+}
